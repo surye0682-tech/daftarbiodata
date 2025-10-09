@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Registrasi Biodata</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter dan memastikan border radius ada di mana-mana */
+        body {
+            font-family: 'Inter', sans-serif;
+           background-color: rgb(196, 196, 196);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-card {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="email"], input[type="date"], input[type="tel"], textarea, select {
+            border-radius: 0.5rem; /* rounded-lg */
+            border-color: #e5e7eb;
+            transition: all 0.2s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
+            border-color: #3b82f6; /* blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        /* Style untuk checkbox */
+        input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 0.25rem;
+            accent-color: #3b82f6; /* blue-600 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="w-full max-w-2xl p-6 md:p-10 bg-white form-card rounded-xl">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Pendaftaran Biodata</h1>
+    <p class="text-gray-500 mb-8">Silakan lengkapi data diri Anda dengan akurat.</p>
+
+    <!-- Formulir Utama -->
+    <form id="biodataForm" class="space-y-6">
+
+        <!-- Nama Lengkap -->
+        <div>
+            <label for="Nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap *</label>
+            <input type="text" id="Nama" name="Nama" required placeholder="Contoh: Budi Santoso"
+                   class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        
+        <!-- No Telepon -->
+        <div>
+            <label for="No_telepon" class="block text-sm font-medium text-gray-700 mb-1">No. Telepon *</label>
+            <input type="tel" id="No_telepon" name="No_telepon" required placeholder="Contoh: 081234567890"
+                   class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">Alamat Email *</label>
+            <input type="email" id="Email" name="Email" required placeholder="nama.anda@contoh.com"
+                   class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Tempat Lahir & Tanggal Lahir (2 Kolom) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="Tempat_lahir" class="block text-sm font-medium text-gray-700 mb-1">Tempat Lahir *</label>
+                <input type="text" id="Tempat_lahir" name="Tempat_lahir" required placeholder="Contoh: Jakarta"
+                       class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="Tanggal_lahir" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir *</label>
+                <input type="date" id="Tanggal_lahir" name="Tanggal_lahir" required
+                       class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+        </div>
+
+        <!-- Alamat -->
+        <div>
+            <label for="Alamat" class="block text-sm font-medium text-gray-700 mb-1">Alamat Lengkap *</label>
+            <textarea id="Alamat" name="Alamat" required rows="2" placeholder="Jalan Raya No. 123, Kota"
+                      class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+
+        <!-- Gender & Agama (2 Kolom) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="Gender" class="block text-sm font-medium text-gray-700 mb-1">Gender *</label>
+                <select id="Gender" name="Gender" required
+                        class="mt-1 block w-full p-3 border bg-white rounded-lg focus:ring-blue-500 focus:border-blue-500 appearance-none">
+                    <option value="" disabled selected>Pilih Gender</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            <div>
+                <label for="Agama" class="block text-sm font-medium text-gray-700 mb-1">Agama *</label>
+                <select id="Agama" name="Agama" required
+                        class="mt-1 block w-full p-3 border bg-white rounded-lg focus:ring-blue-500 focus:border-blue-500 appearance-none">
+                    <option value="" disabled selected>Pilih Agama</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Konghucu">Konghucu</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Foto (File Input) -->
+        <div>
+            <label for="Foto" class="block text-sm font-medium text-gray-700 mb-1">Foto Diri (Max 1MB) *</label>
+            <input type="file" id="Foto" name="Foto" accept="image/*" required
+                   class="mt-1 block w-full text-sm text-gray-500
+                          file:mr-4 file:py-2 file:px-4
+                          file:rounded-full file:border-0
+                          file:text-sm file:font-semibold
+                          file:bg-blue-50 file:text-blue-700
+                          hover:file:bg-blue-100">
+            <p class="mt-2 text-xs text-gray-500">Foto akan diunggah ke Google Drive dan linknya disimpan di Sheet Anda (kolom Link Foto).</p>
+        </div>
+
+        <!-- Biografi -->
+        <div>
+            <label for="Biografi" class="block text-sm font-medium text-gray-700 mb-1">Biografi Singkat (Maks. 200 karakter)</label>
+            <textarea id="Biografi" name="Biografi" maxlength="200" rows="3" placeholder="Jelaskan sedikit tentang diri Anda."
+                      class="mt-1 block w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+            <p class="text-xs text-gray-500 mt-1"><span id="charCount">0</span>/200 karakter</p>
+        </div>
+        
+        <!-- Persetujuan/Consent -->
+        <div class="pt-4">
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="Persetujuan" name="Persetujuan" type="checkbox" required value="Ya"
+                           class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </div>
+                <div class="ml-3 text-sm">
+                    <label for="Persetujuan" class="font-medium text-gray-700">Saya menyetujui syarat dan ketentuan yang berlaku. *</label>
+                    <p class="text-gray-500">Dengan mencentang, Anda memberikan persetujuan data untuk disimpan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" id="submitButton"
+                class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+            <svg id="loadingSpinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Kirim Data Registrasi
+        </button>
+        
+        <!-- Status/Pesan -->
+        <div id="statusMessage" class="text-center p-3 rounded-lg hidden"></div>
+
+    </form>
+</div>
+
+<script>
+    // ** PENTING: GANTI DENGAN URL DEPLOY APPS SCRIPT ANDA **
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxC--YD42EU99I9e-M4igK9ZGHLqQ3j4Mfz6VqnAREYv82kN5bzV0XVkZysk5NODdqtgw/exec"; 
+    // Contoh: "https://script.google.com/macros/s/AKfycbwP.../exec"
+
+    const form = document.getElementById('biodataForm');
+    const submitButton = document.getElementById('submitButton');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const statusMessage = document.getElementById('statusMessage');
+    const biografiTextarea = document.getElementById('Biografi');
+    const charCount = document.getElementById('charCount');
+    const consentCheckbox = document.getElementById('Persetujuan');
+
+    // Fungsi untuk memperbarui hitungan karakter Biografi
+    biografiTextarea.addEventListener('input', () => {
+        charCount.textContent = biografiTextarea.value.length;
+    });
+
+    // Fungsi utilitas untuk menampilkan pesan status
+    function displayStatus(message, isSuccess) {
+        statusMessage.textContent = message;
+        statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+        if (isSuccess) {
+            statusMessage.classList.add('bg-green-100', 'text-green-700');
+            form.reset(); // Reset form jika sukses
+            charCount.textContent = '0'; // Reset hitungan karakter
+            // Pastikan checkbox persetujuan juga di-reset
+            consentCheckbox.checked = false;
+        } else {
+            statusMessage.classList.add('bg-red-100', 'text-red-700');
+        }
+        setTimeout(() => {
+            statusMessage.classList.add('hidden');
+        }, 8000); // Pesan hilang setelah 8 detik
+    }
+
+    // Fungsi utama pengiriman formulir
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        if (APPS_SCRIPT_URL === "GANTI_DENGAN_LINK_DEPLOY_ANDA") {
+            displayStatus("ERROR: Harap ganti variabel APPS_SCRIPT_URL di dalam file JavaScript ini dengan link deploy Apps Script Anda.", false);
+            return;
+        }
+        
+        // 1. Kumpulkan data formulir
+        const formData = new FormData(form);
+        const data = {};
+        for (const [key, value] of formData.entries()) {
+            // Khusus untuk checkbox, jika tidak dicentang, value tidak ada di formData.
+            // Kita harus menetapkan nilai default 'Tidak'.
+            data[key] = value;
+        }
+
+        // Tambahkan nilai Persetujuan secara manual jika tidak ada (artinya tidak dicentang)
+        if (!data['Persetujuan']) {
+            data['Persetujuan'] = 'Tidak';
+        }
+
+        // 2. Proses file foto (konversi ke Base64)
+        const photoFile = data['Foto'];
+        
+        // Cek ukuran file (maks 1MB = 1048576 bytes)
+        if (photoFile && photoFile.size > 1048576) {
+            displayStatus("ERROR: Ukuran file foto melebihi batas maksimum 1MB.", false);
+            return;
+        }
+
+        // Hapus objek File dari data, karena kita akan mengirim Base64
+        delete data['Foto']; 
+
+        // Tampilkan loading state
+        submitButton.disabled = true;
+        loadingSpinner.classList.remove('hidden');
+        submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Mengirim...`;
+
+        // Konversi File ke Base64 string
+        const base64Data = await new Promise((resolve, reject) => {
+            if (photoFile && photoFile.size > 0) {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]); // Ambil hanya Base64 data setelah koma
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(photoFile);
+            } else {
+                resolve(null);
+            }
+        });
+
+        // 3. Gabungkan data dan Base64 foto
+        const payload = new URLSearchParams({
+            ...data,
+            'Foto_Base64': base64Data, // Kirim Base64 dengan key khusus
+            'FileName': photoFile ? photoFile.name : 'No_File.txt' // Kirim nama file
+        });
+
+        // 4. Kirim data ke Apps Script
+        try {
+            const response = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: payload,
+                // Penting: Jangan atur Content-Type, biarkan browser menanganinya (multipart/form-data)
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                displayStatus("🎉 Data berhasil diregistrasi!", true);
+            } else {
+                displayStatus(`❌ Gagal: ${result.message || 'Terjadi kesalahan saat menyimpan data.'}`, false);
+            }
+
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            displayStatus(`❌ Gagal mengirim data ke server. Cek koneksi internet atau URL Apps Script.`, false);
+        } finally {
+            // Sembunyikan loading state
+            submitButton.disabled = false;
+            loadingSpinner.classList.add('hidden');
+            submitButton.innerHTML = `Kirim Data Registrasi`;
+        }
+    });
+
+</script>
+</body>
+</html>
